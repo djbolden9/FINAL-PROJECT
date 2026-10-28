@@ -2,12 +2,12 @@
 
 ## What idea(s) do you have for your final project?
 
-TODO
+I plan to create a Pokemon inspired game in GBStudio
 
 ## If you plan to collaborate with one or two classmates, what are their names?
 
-TODO
+N/A
 
 ## Do you have any questions of your own?
 
-TODO
+What exactly is considered a "Best Project"?
