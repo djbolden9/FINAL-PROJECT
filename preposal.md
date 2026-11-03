@@ -6,8 +6,9 @@ I plan to create a Pokemon inspired game in GBStudio
 
 ## If you plan to collaborate with one or two classmates, what are their names?
 
-N/A
+n/a
 
 ## Do you have any questions of your own?
 
 What exactly is considered a "Best Project"?
+
