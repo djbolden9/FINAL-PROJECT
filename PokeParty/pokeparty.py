@@ -125,7 +125,7 @@ def loadpool(size=(56, 56)):
             sprite = pygame.transform.scale(loaded, size)
         else:
             sprite = pygame.Surface(size, pygame.SRCALPHA)
-            pygame.draw.rect(sprite, (90, 100, 120), sprite.get_rect(), border_radius=6)
+            pygame.draw.rect(sprite, (245, 205, 95), sprite.get_rect(), border_radius=6)
         pool.append({"key": key, "name": info.get("name", key.capitalize()), "value": info.get("value", info.get("cost", 10)), "types": info.get("types", []), "stats": info.get("stats", {}), "bst": info.get("bst", 0), "sprite": sprite})
     return pool
 
@@ -162,7 +162,7 @@ def drawlines(surface, lines, font, color, pos, gap=8):
 
 def drawinspector(surface, mon, box, fonts):
     pygame.draw.rect(surface, (26, 30, 38), box, border_radius=8)
-    pygame.draw.rect(surface, (75, 85, 105), box, width=2, border_radius=8)
+    pygame.draw.rect(surface, (245, 205, 95), box, width=2, border_radius=8)
 
     if not mon:
         msg = fonts["small"].render("Click a Pokémon card", True, (150, 160, 175))
@@ -184,14 +184,14 @@ def drawinspector(surface, mon, box, fonts):
     y = box.y + 180
     barw = 78
     for label, val in rows:
-        lbl = fonts["stat"].render(f"{label}: {val}", True, (220, 225, 235))
+        lbl = fonts["stat"].render(f"{label}: {val}", True, ("white"))
         surface.blit(lbl, (box.x + 14, y))
 
         fill = max(2, min(barw, int((val / 200) * barw)))
         bg = pygame.Rect(box.right - barw - 14, y + 3, barw, 10)
         fg = pygame.Rect(bg.x, bg.y, fill, bg.height)
         pygame.draw.rect(surface, (50, 56, 68), bg, border_radius=3)
-        pygame.draw.rect(surface, (70, 165, 250), fg, border_radius=3)
+        pygame.draw.rect(surface, (245, 205, 95), fg, border_radius=3)
         y += 20
 
 def togglewidgets(widgets, active):
@@ -387,7 +387,7 @@ def main():
         squad = list(drafted)
         toopponent()
 
-    draftbtn = Button(screen, 395, 185, 210, 65, text="Draft Mode", font=pygame.font.SysFont("ravie", 18), textColour="white", inactiveColour=(55, 135, 210), hoverColour=(40, 105, 170), pressedColour=(120, 180, 235), radius=25, onClick=startdraft,)
+    draftbtn = Button(screen, 395, 185, 210, 65, text="Draft Mode", font=pygame.font.SysFont("ravie", 18), textColour="white", inactiveColour=(246, 148, 0), hoverColour=(179, 109, 4), pressedColour=(235, 190, 124), radius=25, onClick=startdraft,)
 
     modeback = Button(screen, 450, 385, 100, 50, text="Back", font=pygame.font.SysFont("ravie", 20), textColour="white", inactiveColour=(246, 148, 0), hoverColour=(179, 109, 4), pressedColour=(235, 190, 124), radius=50, onClick=tomenu,)
 
@@ -495,7 +495,7 @@ def main():
 
             for panel in (leftpanel, midpanel, rightpanel):
                 pygame.draw.rect(screen, (24, 27, 34), panel, border_radius=8)
-                pygame.draw.rect(screen, (65, 75, 92), panel, width=2, border_radius=8)
+                pygame.draw.rect(screen, (245, 205, 95), panel, width=2, border_radius=8)
 
             heading = fonts["title"].render("All Pokémon", True, (235, 240, 248))
             screen.blit(heading, (22, 24))
@@ -552,7 +552,7 @@ def main():
                     entry = fonts["small"].render(f"{member['name']} ({member['value']}pt)", True, (240, 244, 250))
                     screen.blit(entry, (box.x + 43, box.y + 13))
                 else:
-                    empty = fonts["small"].render(f"Slot {idx + 1}", True, (120, 130, 148))
+                    empty = fonts["small"].render(f"Slot {idx + 1}", True, (245, 205, 95))
                     screen.blit(empty, (box.x + 12, box.y + 13))
 
         elif state == "draft":
@@ -565,7 +565,7 @@ def main():
 
             for panel in (leftpanel, midpanel, rightpanel):
                 pygame.draw.rect(screen, (24, 27, 34), panel, border_radius=8)
-                pygame.draw.rect(screen, (65, 75, 92), panel, width=2, border_radius=8)
+                pygame.draw.rect(screen, (245, 205, 95), panel, width=2, border_radius=8)
 
             cur = min(roundnum + 1, teamcap)
             head = fonts["title"].render(f"Draft - Round {cur}/{teamcap}", True, (235, 240, 248))
@@ -594,7 +594,7 @@ def main():
                     namelbl = fonts["card"].render(mon["name"], True, (240, 244, 250))
                     screen.blit(namelbl, namelbl.get_rect(centerx=box.centerx, top=box.y + 140))
 
-                    typelbl = fonts["small"].render(" / ".join(mon["types"]), True, (155, 200, 255))
+                    typelbl = fonts["small"].render(" / ".join(mon["types"]), True, (245, 205, 95))
                     screen.blit(typelbl, typelbl.get_rect(centerx=box.centerx, top=box.y + 165))
 
                     bstlbl = fonts["small"].render(f"BST: {mon['bst']}", True, (245, 205, 95))
